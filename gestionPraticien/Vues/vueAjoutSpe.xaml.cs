@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace gestionPraticien.Vues
@@ -18,7 +17,7 @@ namespace gestionPraticien.Vues
     /// <summary>
     /// Logique d'interaction pour vueAjoutSpe.xaml
     /// </summary>
-    public partial class vueAjoutSpe : Page
+    public partial class vueAjoutSpe : Window
     {
         public vueAjoutSpe()
         {
