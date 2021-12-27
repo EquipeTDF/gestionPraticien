@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Vues\index.xaml.cs">
+      <DependentUpon>index.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vues\vueAjoutPraticienAUneActivite.xaml.cs">
       <DependentUpon>vueAjoutPraticienAUneActivite.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Vues\index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vues\vueAjoutPraticienAUneActivite.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

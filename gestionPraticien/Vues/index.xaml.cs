@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace gestionPraticien.Vues
 {
     /// <summary>
-    /// Logique d'interaction pour vueAjoutPraticienAUneActivite.xaml
+    /// Logique d'interaction pour index.xaml
     /// </summary>
-    public partial class vueAjoutPraticienAUneActivite : Window
+    public partial class index : Window
     {
-        public vueAjoutPraticienAUneActivite()
+        public index()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
