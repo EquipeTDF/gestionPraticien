@@ -5,8 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:gestionPraticien"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        
+        <Button HorizontalAlignment="Left" Height="71" Margin="325,17,0,0" VerticalAlignment="Top" Width="154" Click="Button_ClickModifInserSpePraticien">
+            <Label Content="Modifier/Insérer une&#xD;&#xA;spécialité à un praticien"/>
+        </Button>
+        <Button HorizontalAlignment="Left" Height="71" Margin="576,17,0,0" VerticalAlignment="Top" Width="154" Click="Button_ClickInserPraticienToActivite">
+            <Label Content="Créer ou modifier &#xA;une specialité"/>
+        </Button>
+        <Label Content="Liste des praticiens :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="68,111,0,0"/>
+        <Button HorizontalAlignment="Left" Height="71" Margin="68,17,0,0" VerticalAlignment="Top" Width="154" Click="Button_ClickCreModifSpe">
+            <Label Content="Créer ou modifier &#xA;une specialité"/>
+        </Button>
+        <Button HorizontalAlignment="Left" Height="71" Margin="68,338,0,0" VerticalAlignment="Top" Width="154" Click="Button_ClickStatPraticien">
+            <Label Content="Bouton statistique&#xD;&#xA;du praticien"/>
+        </Button>
+        <Label Content="Profil du praticien" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="325,111,0,0"/>
+        <Label Content="Spécialité(s) du praticien sélectionné :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="325,156,0,0"/>
+        <Label Content="Activité(s) complémentaire(s) du praticien :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="325,278,0,0"/>
+        <ListBox x:Name="LstPraticiens" HorizontalAlignment="Left" Height="186" VerticalAlignment="Top" Width="154" Margin="68,137,0,0" SelectionChanged="lstPraticiens_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding NumeroPraticien}" Width="50"></TextBlock>
+                        <TextBlock Text="{Binding NomPraticien}" Width="100"></TextBlock>
+                        <Image Source="{Binding PrenomPraticien}" Width="80" Height="80"></Image>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox HorizontalAlignment="Left" Height="86" VerticalAlignment="Top" Width="215" Margin="325,187,0,0"/>
+        <ListBox HorizontalAlignment="Left" Height="83" VerticalAlignment="Top" Width="215" Margin="325,309,0,0"/>
+
     </Grid>
+
 </Window>

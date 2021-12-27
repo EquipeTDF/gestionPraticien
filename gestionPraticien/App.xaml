@@ -4,7 +4,6 @@
              xmlns:local="clr-namespace:gestionPraticien"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
     </Application.Resources>
 </Application>
-1

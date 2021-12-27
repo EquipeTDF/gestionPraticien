@@ -55,9 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Vues\index.xaml.cs">
-      <DependentUpon>index.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Vues\vueAjoutPraticienAUneActivite.xaml.cs">
       <DependentUpon>vueAjoutPraticienAUneActivite.xaml</DependentUpon>
     </Compile>
@@ -82,10 +79,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Vues\index.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Vues\vueAjoutPraticienAUneActivite.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,6 +124,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="image\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Classes\Classes.csproj">
+      <Project>{2bcb7ebf-e117-48ab-98dc-1949c61a1d7f}</Project>
+      <Name>Classes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GstBDD\GstBDD.csproj">
+      <Project>{0aaabe93-3b0e-4c0d-94ad-3548fca17dca}</Project>
+      <Name>GstBDD</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
