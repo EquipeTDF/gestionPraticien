@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:gestionPraticien.Vues"
         mc:Ignorable="d"
         Title="vueAjoutSpePraticien" Height="450" Width="800">
-    <Grid>
+    <Grid> 
         
     </Grid>
 </Window>
