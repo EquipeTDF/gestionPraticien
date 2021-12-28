@@ -12,8 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using GstBDD;
-using gestionPraticien.classes;
+using GstBDDPraticien;
+using GstClasses;
 
 namespace gestionPraticien
 {
@@ -26,10 +26,11 @@ namespace gestionPraticien
         {
             InitializeComponent();
         }
-
+        GstBDD gst;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            gst = new GstBDD();
+            LstPraticiens.ItemsSource = gst.GetLesPraticiens();
         }
 
         private void Button_ClickModifInserSpePraticien(object sender, RoutedEventArgs e)
@@ -38,11 +39,6 @@ namespace gestionPraticien
         }
 
         private void Button_ClickInserPraticienToActivite(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void LstPraticiens_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
@@ -59,7 +55,8 @@ namespace gestionPraticien
 
         private void lstPraticiens_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            LstSpeDuPraticien.ItemsSource = gst.GetSpecialitesDuPraticien((LstPraticiens.SelectedItem as Praticien).NumeroPraticien);
+            LstActiviteDuPraticien.ItemsSource = gst.GetActivitesDuPraticien((LstPraticiens.SelectedItem as Praticien).NumeroPraticien);
         }
     }
 }

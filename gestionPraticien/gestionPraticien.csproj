@@ -126,13 +126,13 @@
     <Folder Include="image\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Classes\Classes.csproj">
-      <Project>{2bcb7ebf-e117-48ab-98dc-1949c61a1d7f}</Project>
-      <Name>Classes</Name>
+    <ProjectReference Include="..\GstBDDPraticien\GstBDDPraticien.csproj">
+      <Project>{7fb0b7dc-97e6-4387-bd13-0fadab20130d}</Project>
+      <Name>GstBDDPraticien</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GstBDD\GstBDD.csproj">
-      <Project>{0aaabe93-3b0e-4c0d-94ad-3548fca17dca}</Project>
-      <Name>GstBDD</Name>
+    <ProjectReference Include="..\GstClasses\GstClasses.csproj">
+      <Project>{7ab511e5-f132-4023-81d9-4deaad9b29fa}</Project>
+      <Name>GstClasses</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

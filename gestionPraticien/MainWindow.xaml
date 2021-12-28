@@ -23,19 +23,35 @@
         <Label Content="Profil du praticien" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="325,111,0,0"/>
         <Label Content="Spécialité(s) du praticien sélectionné :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="325,156,0,0"/>
         <Label Content="Activité(s) complémentaire(s) du praticien :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="325,278,0,0"/>
-        <ListBox x:Name="LstPraticiens" HorizontalAlignment="Left" Height="186" VerticalAlignment="Top" Width="154" Margin="68,137,0,0" SelectionChanged="lstPraticiens_SelectionChanged">
+        <ListBox x:Name="LstPraticiens" HorizontalAlignment="Left" Height="186" VerticalAlignment="Top" Width="270" Margin="10,137,0,0" SelectionChanged="lstPraticiens_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding NumeroPraticien}" Width="50"></TextBlock>
                         <TextBlock Text="{Binding NomPraticien}" Width="100"></TextBlock>
-                        <Image Source="{Binding PrenomPraticien}" Width="80" Height="80"></Image>
+                        <TextBlock Text="{Binding PrenomPraticien}" Width="100"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox HorizontalAlignment="Left" Height="86" VerticalAlignment="Top" Width="215" Margin="325,187,0,0"/>
-        <ListBox HorizontalAlignment="Left" Height="83" VerticalAlignment="Top" Width="215" Margin="325,309,0,0"/>
+        <ListBox x:Name="LstSpeDuPraticien"  HorizontalAlignment="Left" Height="86" VerticalAlignment="Top" Width="405" Margin="325,187,0,0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding NomSpe}" Width="400"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="LstActiviteDuPraticien" HorizontalAlignment="Left" Height="83" VerticalAlignment="Top" Width="405" Margin="325,309,0,0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding NomActivite}" Width="400"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
     </Grid>
 
