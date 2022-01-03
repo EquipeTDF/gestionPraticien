@@ -4,9 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:gestionPraticien.Vues"
-        mc:Ignorable="d"
-        Title="vueAjoutSpePraticien" Height="450" Width="800">
-    <Grid> 
         
+        mc:Ignorable="d"
+        Title="vueAjoutSpePraticien" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="254,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="267" FontSize="15"><Run Text="Ajout d'une spécialité à un praticitien"/><Run Text=" :"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="56,112,0,0" TextWrapping="Wrap" Text="Liste des praticiens : " VerticalAlignment="Top" Height="28" Width="141"/>
+        <TextBlock HorizontalAlignment="Left" Margin="328,112,0,0" TextWrapping="Wrap" Text="Diplôme :" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="536,112,0,0" TextWrapping="Wrap" Text="Liste des spécialités non possédées :" VerticalAlignment="Top" Width="217"/>
+        <TextBlock HorizontalAlignment="Left" Margin="328,241,0,0" TextWrapping="Wrap" Text="Spécialisation : " VerticalAlignment="Top"/>
+        <Button Content="Ajout" HorizontalAlignment="Left" Margin="328,344,0,0" VerticalAlignment="Top" Width="81" Name="btnAjout" Click="btnAjout_Click"/>
+        <Slider HorizontalAlignment="Left" Margin="294,276,0,0" VerticalAlignment="Top" Width="140" Minimum="0" Maximum="5"/>
+        <ListBox Name="lbPraticiens" HorizontalAlignment="Left" Height="100" Margin="56,145,0,0" VerticalAlignment="Top" Width="109" SelectionChanged="lbPraticiens_SelectionChanged"/>
+        <ListView Name="lvSpecialiteNonPosseder" HorizontalAlignment="Left" Height="100" Margin="536,145,0,0" VerticalAlignment="Top" Width="157">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </Window>
