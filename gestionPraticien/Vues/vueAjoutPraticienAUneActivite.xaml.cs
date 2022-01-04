@@ -45,7 +45,23 @@ namespace gestionPraticien.Vues
 
         private void btnAjout_Click(object sender, RoutedEventArgs e)
         {
-
+            if (lbPraticiens.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un praticien ", "Erreur de sélection", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (lstActivitesComplementaires.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez sélectionner une activité complémentaire ", "Erreur de sélection", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                int estSpecialiste = 0;
+                if ((bool)rbEstSpe.IsChecked)
+                {
+                    estSpecialiste = 1;
+                }
+                gst.AjouterActiviteAPraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien, (lstActivitesComplementaires.SelectedItem as Activite).NumActivite, estSpecialiste);
+            }
         }
     }
 }

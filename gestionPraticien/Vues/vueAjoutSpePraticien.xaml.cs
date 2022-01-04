@@ -48,11 +48,11 @@ namespace gestionPraticien.Vues
         {
             if(lbPraticiens.SelectedItem == null)
             {
-                
+                MessageBox.Show("Veuillez sélectionner un praticien ", "Erreur de sélection", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else if (lstSpecialiteNonPosseder.SelectedItems == null)
+            else if (lstSpecialiteNonPosseder.SelectedItem == null)
             {
-
+                MessageBox.Show("Veuillez sélectionner une spécialité ", "Erreur de sélection", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -62,7 +62,8 @@ namespace gestionPraticien.Vues
                     estDiplome = 1;
                 }
 
-                gst.AjouterSpePraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien, (lstSpecialiteNonPosseder.SelectedItems as Specialite).NumSpe, estDiplome, Convert.ToInt16(slSpe.Value));
+                gst.AjouterSpePraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien, (lstSpecialiteNonPosseder.SelectedItem as Specialite).IdSpe, estDiplome, Convert.ToInt16(slSpe.Value));
+                lstSpecialiteNonPosseder.Items.Refresh();
             }
         }
     }

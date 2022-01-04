@@ -70,11 +70,11 @@ namespace GstBDDPraticien
         public List<Specialite> GetSpecialitesNonPossedesDuPraticien(int unNumPraticien)
         {
             List<Specialite> mesSpecialites = new List<Specialite>();
-            cmd = new MySqlCommand("SELECT specialite.SPE_LIBELLE FROM specialite WHERE specialite.SPE_LIBELLE NOT IN (SELECT specialite.SPE_LIBELLE FROM specialite INNER JOIN posseder ON specialite.SPE_CODE = posseder.SPE_CODE WHERE posseder.PRA_NUM =" + unNumPraticien + ")", cnx);
+            cmd = new MySqlCommand("SELECT specialite.SPE_CODE, specialite.SPE_LIBELLE FROM specialite WHERE specialite.SPE_LIBELLE NOT IN (SELECT specialite.SPE_LIBELLE FROM specialite INNER JOIN posseder ON specialite.SPE_CODE = posseder.SPE_CODE WHERE posseder.PRA_NUM =" + unNumPraticien + ")", cnx);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                Specialite uneSpecialite = new Specialite(dr[0].ToString());
+                Specialite uneSpecialite = new Specialite(Convert.ToInt16(dr[0].ToString()) ,dr[1].ToString());
                 mesSpecialites.Add(uneSpecialite);
             }
             dr.Close();
@@ -84,11 +84,11 @@ namespace GstBDDPraticien
         public List<Activite> GetActivitesNonInvitesDuPraticien(int unNumPraticien)
         {
             List<Activite> mesActivites = new List<Activite>();
-            cmd = new MySqlCommand("SELECT activite_compl.AC_THEME FROM activite_compl  WHERE activite_compl.AC_NUM NOT IN ( SELECT activite_compl.AC_NUM FROM activite_compl INNER JOIN inviter ON inviter.AC_NUM = activite_compl.AC_NUM WHERE inviter.PRA_NUM = " + unNumPraticien + ")", cnx);
+            cmd = new MySqlCommand("SELECT activite_compl.AC_NUM, activite_compl.AC_THEME FROM activite_compl  WHERE activite_compl.AC_NUM NOT IN ( SELECT activite_compl.AC_NUM FROM activite_compl INNER JOIN inviter ON inviter.AC_NUM = activite_compl.AC_NUM WHERE inviter.PRA_NUM = " + unNumPraticien + ")", cnx);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                Activite uneActivite = new Activite(dr[0].ToString());
+                Activite uneActivite = new Activite(Convert.ToInt16(dr[0].ToString()), dr[1].ToString());
                 mesActivites.Add(uneActivite);
             }
             dr.Close();
@@ -111,6 +111,31 @@ namespace GstBDDPraticien
                 cmd.Parameters.AddWithValue("@unNumSpe", Convert.ToInt16(unNumSpe));
                 cmd.Parameters.AddWithValue("@estDiplome", Convert.ToInt16(estDiplome));
                 cmd.Parameters.AddWithValue("@unCoef", Convert.ToInt16(unCoef));
+                cmd.Prepare();
+
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                if (connection != null)
+                    connection.Close();
+            }
+        }
+        public void AjouterActiviteAPraticien(int unNumPraticien, int unNumActivite, int estSpecialiste)
+        {
+            string connectionString = cnx.ConnectionString;
+
+            MySqlConnection connection = null;
+            try
+            {
+                connection = new MySqlConnection(connectionString);
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = "INSERT INTO `inviter`(`AC_NUM`, `PRA_NUM`, `SPECIALISTEON`) VALUES (@unNumActivite, @unNumPraticien, @estSpecialiste)";
+                cmd.Parameters.AddWithValue("@unNumActivite", Convert.ToInt16(unNumActivite));
+                cmd.Parameters.AddWithValue("@unNumPraticien", Convert.ToInt16(unNumPraticien));
+                cmd.Parameters.AddWithValue("@estSpecialiste", Convert.ToInt16(estSpecialiste));
                 cmd.Prepare();
 
                 cmd.ExecuteNonQuery();
