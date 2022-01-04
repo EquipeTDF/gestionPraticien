@@ -11,7 +11,7 @@
             <Label Content="Modifier/Insérer une&#xD;&#xA;spécialité à un praticien"/>
         </Button>
         <Button HorizontalAlignment="Left" Height="71" Margin="576,17,0,0" VerticalAlignment="Top" Width="154" Click="Button_ClickInserPraticienToActivite">
-            <Label Content="Créer ou modifier &#xA;une specialité"/>
+            <Label Content="Ajouter une activités  &#xA; complémentaireà un &#xA; praticien"/>
         </Button>
         <Label Content="Liste des praticiens :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="68,111,0,0"/>
         <Button HorizontalAlignment="Left" Height="71" Margin="68,17,0,0" VerticalAlignment="Top" Width="154" Click="Button_ClickCreModifSpe">

@@ -5,6 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:gestionPraticien.Vues"
         mc:Ignorable="d"
-        Title="vueAjoutPraticienAUneActivite" Height="450" Width="800">
-    <Grid/>
+        Title="vueAjoutPraticienAUneActivite" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="187,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="389" FontSize="15"><Run Text="Ajout d'un praticitien à une activité complémentaire"/><Run Text=" :"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="56,57,0,0" TextWrapping="Wrap" Text="Liste des praticiens : " VerticalAlignment="Top" Height="28" Width="141"/>
+        <TextBlock HorizontalAlignment="Left" Margin="495,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217"><Run Text="Liste des "/><Run Text="activités complémentaire :"/></TextBlock>
+        <Button Content="Inviter" HorizontalAlignment="Left" Margin="328,344,0,0" VerticalAlignment="Top" Width="81" Name="btnAjout" Click="btnAjout_Click"/>
+        <ListBox Name="lbPraticiens" HorizontalAlignment="Left" Height="220" Margin="56,77,0,0" VerticalAlignment="Top" Width="213" SelectionChanged="lbPraticiens_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding NumeroPraticien}" Width="50"></TextBlock>
+                        <TextBlock Text="{Binding NomPraticien}" Width="100"></TextBlock>
+                        <TextBlock Text="{Binding PrenomPraticien}" Width="100"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Name="lstActivitesComplementaires" HorizontalAlignment="Left" Height="243" Margin="476,90,0,0" VerticalAlignment="Top" Width="277" SelectionMode="Multiple">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding NomActivite}" Width="400"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <RadioButton Content="Est spécialiste" HorizontalAlignment="Left" Margin="317,145,0,0" VerticalAlignment="Top"/>
+    </Grid>
 </Window>

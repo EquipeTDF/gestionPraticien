@@ -19,6 +19,7 @@ namespace gestionPraticien.Vues
     /// </summary>
     public partial class vueStats : Window
     {
+
         public vueStats()
         {
             InitializeComponent();
