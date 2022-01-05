@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using gestionPraticien.Vues;
 using GstBDDPraticien;
 using GstClasses;
 
@@ -45,12 +46,14 @@ namespace gestionPraticien
 
         private void Button_ClickCreModifSpe(object sender, RoutedEventArgs e)
         {
-
+            vueAjoutSpe ajoutSpe = new vueAjoutSpe(gst);
+            ajoutSpe.Show();
         }
 
         private void Button_ClickStatPraticien(object sender, RoutedEventArgs e)
         {
-
+            vueStats pageStats = new vueStats(gst);
+            pageStats.Show();
         }
 
         private void lstPraticiens_SelectionChanged(object sender, SelectionChangedEventArgs e)
