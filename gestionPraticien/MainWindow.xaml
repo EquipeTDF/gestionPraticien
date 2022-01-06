@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Button HorizontalAlignment="Left" Height="71" Margin="325,17,0,0" VerticalAlignment="Top" Width="154" Click="Button_ClickModifInserSpePraticien">
-            <Label Content="Modifier/Insérer une&#xD;&#xA;spécialité à un praticien"/>
+            <Label Content="Insérer une spécialité  &#xA;à un praticien"/>
         </Button>
         <Button HorizontalAlignment="Left" Height="71" Margin="576,17,0,0" VerticalAlignment="Top" Width="154" Click="Button_ClickInserPraticienToActivite">
             <Label Content="Ajouter une activités  &#xA; complémentaireà un &#xA; praticien"/>
