@@ -38,8 +38,8 @@ namespace gestionPraticien.Vues
             LbPraticienAyantLePlusDeSpe.ItemsSource = gst.GetPraticienAvecLePlusDeSpe();
             LbPraticienAyantLeMoinsDeSpe.ItemsSource = gst.GetPraticienAvecLeMoinsDeSpe();
             LbPraticienAyantJamaisParticiperAUneActivite.ItemsSource = gst.GetPraticienAyantJamaisParticiperAUneActivite();
-            txtCoefSuperieur.Text = gst.GetCoefNotorieteSup().ToString();
-            txtCoefInferieur.Text = gst.GetCoefNotorieteInf().ToString();
+            txtCoefSuperieur.Text = " " + gst.GetCoefNotorieteSup().ToString();
+            txtCoefInferieur.Text = " " + gst.GetCoefNotorieteInf().ToString();
 
         }
     }
