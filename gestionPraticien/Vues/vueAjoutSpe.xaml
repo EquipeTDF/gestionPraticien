@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:gestionPraticien.Vues"
         mc:Ignorable="d"
-        Title="vueAjoutSpe" Height="450" Width="800">
+        Title="vueAjoutSpe" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="321,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="140" FontSize="15"><Run Text="Créer une spécialité :"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="53,55,0,0" TextWrapping="Wrap" Text="Liste des spécialités :" VerticalAlignment="Top" Height="26" Width="119"/>
+        <TextBlock HorizontalAlignment="Left" Margin="400,55,0,0" TextWrapping="Wrap" Text="Modifier la spécialité :" VerticalAlignment="Top" Height="26" Width="119"/>
+        <TextBlock HorizontalAlignment="Left" Margin="400,217,0,0" TextWrapping="Wrap" Text="Nom de la spécialité :" VerticalAlignment="Top" Height="26" Width="119"/>
         
+        <TextBox Name="txtModifSpe" HorizontalAlignment="Left" Height="46" Margin="400,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"/>
+        <TextBox Name="txtNomSpe" HorizontalAlignment="Left" Height="46" Margin="400,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"/>
+        
+        <Button Content="Modifier" HorizontalAlignment="Left" Margin="400,143,0,0" VerticalAlignment="Top" Width="81" Name="btnModifier" Click="btnModifier_Click"/>
+        <Button Content="Ajouter" HorizontalAlignment="Left" Margin="400,310,0,0" VerticalAlignment="Top" Width="81" Name="btnAjouter" Click="btnAjouter_Click"/>
+        
+        <ListBox x:Name="lbDesSpe"  HorizontalAlignment="Left" Height="244" VerticalAlignment="Top" Width="208" Margin="53,86,0,0" SelectionChanged="lbSpeDuPraticien_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding NomSpe}" Width="400"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

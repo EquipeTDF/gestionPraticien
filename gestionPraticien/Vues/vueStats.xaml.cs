@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using GstBDDPraticien;
+using GstClasses;
 
 namespace gestionPraticien.Vues
 {
@@ -19,10 +21,27 @@ namespace gestionPraticien.Vues
     /// </summary>
     public partial class vueStats : Window
     {
+        private GstBDD gst;
+
+        public GstBDD Gst { get => gst; set => gst = value; }
+
+        public vueStats(GstBDD unGst)
 
         public vueStats()
         {
+            Gst = unGst;
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            LbSpeDuPraticien.ItemsSource = gst.GetLesSpeTotal();
+            LbPraticienAyantLePlusDeSpe.ItemsSource = gst.GetPraticienAvecLePlusDeSpe();
+            LbPraticienAyantLeMoinsDeSpe.ItemsSource = gst.GetPraticienAvecLeMoinsDeSpe();
+            LbPraticienAyantJamaisParticiperAUneActivite.ItemsSource = gst.GetPraticienAyantJamaisParticiperAUneActivite();
+            txtCoefSuperieur.Text = gst.GetCoefNotorieteSup().ToString();
+            txtCoefInferieur.Text = gst.GetCoefNotorieteInf().ToString();
+
         }
     }
 }

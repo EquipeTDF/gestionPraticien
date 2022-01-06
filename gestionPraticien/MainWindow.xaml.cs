@@ -16,7 +16,6 @@ using System.Windows.Shapes;
 using gestionPraticien.Vues;
 using GstBDDPraticien;
 using GstClasses;
-using Navigation;
 
 namespace gestionPraticien
 {
@@ -51,11 +50,13 @@ namespace gestionPraticien
 
         private void Button_ClickCreModifSpe(object sender, RoutedEventArgs e)
         {
-
+            vueAjoutSpe ajoutSpe = new vueAjoutSpe(gst);
+            ajoutSpe.Show();
         }
 
         private void Button_ClickStatPraticien(object sender, RoutedEventArgs e)
         {
+
         }
 
         private void lstPraticiens_SelectionChanged(object sender, SelectionChangedEventArgs e)

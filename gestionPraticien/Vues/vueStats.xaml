@@ -5,8 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:gestionPraticien.Vues"
         mc:Ignorable="d"
-        Title="vueStats" Height="450" Width="800">
+        Title="vueStats" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        
+        <TextBlock HorizontalAlignment="Left" Margin="350,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="91" FontSize="15"><Run Text="Statistiques"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="53,55,0,0" TextWrapping="Wrap" Text="Nombre de spécialité par praticiens : " VerticalAlignment="Top" Height="40" Width="141"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="300,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="141"><Run Text="Praticiens possédants le plus de spécialité :"/></TextBlock>
+
+        <TextBlock HorizontalAlignment="Left" Margin="300,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="141"><Run Text="Praticiens possédants le moins de spécialité :"/></TextBlock>
+
+        <TextBlock HorizontalAlignment="Left" Margin="53,354,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="222"><Run Text="Praticiens n'ayant jamais participé à une activité complémentaire : "/></TextBlock>
+
+        <TextBlock HorizontalAlignment="Left" Margin="551,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="141"><Run Text="Le nombre de praticiens dont le coefficient de notoriété est supérieur à la moyenne :"/></TextBlock>
+        <TextBlock Name="txtCoefSuperieur" Width="141" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="551,127,100,237" Height="55"></TextBlock>
+
+        <TextBlock HorizontalAlignment="Left" Margin="551,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="141"><Run Text="Le nombre de praticiens dont le coefficient de notoriété est inférieur à la moyenne :"/></TextBlock>
+        <TextBlock Name="txtCoefInferieur" Width="141" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="551,279,100,85" Height="55"></TextBlock>
+
+        <ListBox x:Name="LbSpeDuPraticien"  HorizontalAlignment="Left" Height="217" VerticalAlignment="Top" Width="141" Margin="53,100,0,0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding NomPraticien}" Width="100"></TextBlock>
+                        <TextBlock Text="{Binding PrenomPraticien}" Width="100"></TextBlock>
+                        <TextBlock Text="{Binding NombreDeSpe}" Width="50"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="LbPraticienAyantLePlusDeSpe"  HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="141" Margin="300,97,0,0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding NumeroPraticien}" Width="50"></TextBlock>
+                        <TextBlock Text="{Binding NomPraticien}" Width="100"></TextBlock>
+                        <TextBlock Text="{Binding PrenomPraticien}" Width="100"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="LbPraticienAyantLeMoinsDeSpe"  HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="141" Margin="300,239,0,0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding NumeroPraticien}" Width="50"></TextBlock>
+                        <TextBlock Text="{Binding NomPraticien}" Width="100"></TextBlock>
+                        <TextBlock Text="{Binding PrenomPraticien}" Width="100"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="LbPraticienAyantJamaisParticiperAUneActivite"  HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="141" Margin="300,354,0,0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding NumeroPraticien}" Width="50"></TextBlock>
+                        <TextBlock Text="{Binding NomPraticien}" Width="100"></TextBlock>
+                        <TextBlock Text="{Binding PrenomPraticien}" Width="100"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>
