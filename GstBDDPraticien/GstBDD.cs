@@ -170,6 +170,7 @@ namespace GstBDDPraticien
             while (dr.Read())
             {
                 Praticien unPraticien = new Praticien(dr[0].ToString(), dr[1].ToString(), Convert.ToInt16(dr[2].ToString()));
+
                 lesSpeTotal.Add(unPraticien);
             }
             dr.Close();
@@ -191,7 +192,7 @@ namespace GstBDDPraticien
                     lesPraticiensSpeMax.Clear();
                     lesPraticiensSpeMax.Add(p);
                 }
-                if (p.NombreDeSpe == nbSpeMax)
+                else if (p.NombreDeSpe == nbSpeMax)
                 {
                     lesPraticiensSpeMax.Add(p);
                 }
@@ -205,17 +206,17 @@ namespace GstBDDPraticien
             List<Praticien> lesPraticiens = GetLesSpeTotal();
             List<Praticien> lesPraticiensSpeMin = new List<Praticien>();
 
-            int nbSpeMax = 0;
+            int nbSpeMin = 1;
             foreach (Praticien p in lesPraticiens)
             {
 
-                if (p.NombreDeSpe < nbSpeMax)
+                if (p.NombreDeSpe < nbSpeMin)
                 {
-                    nbSpeMax = p.NombreDeSpe;
+                    nbSpeMin = p.NombreDeSpe;
                     lesPraticiensSpeMin.Clear();
                     lesPraticiensSpeMin.Add(p);
                 }
-                if (p.NombreDeSpe == nbSpeMax)
+                else if (p.NombreDeSpe == nbSpeMin)
                 {
                     lesPraticiensSpeMin.Add(p);
                 }
@@ -234,6 +235,7 @@ namespace GstBDDPraticien
                 Praticien unPraticien = new Praticien(Convert.ToInt16(dr[0].ToString()), dr[1].ToString(), dr[2].ToString());
                 lesPraticiensAyantJamaisParticiperAUneActivite.Add(unPraticien);
             }
+            dr.Close();
             return lesPraticiensAyantJamaisParticiperAUneActivite;
         }
 

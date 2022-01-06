@@ -25,9 +25,8 @@ namespace gestionPraticien.Vues
 
         public GstBDD Gst { get => gst; set => gst = value; }
 
-        public vueStats(GstBDD unGst)
 
-        public vueStats()
+        public vueStats(GstBDD unGst)
         {
             Gst = unGst;
             InitializeComponent();

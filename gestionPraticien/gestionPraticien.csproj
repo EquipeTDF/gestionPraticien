@@ -38,9 +38,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Navigation, Version=1.11.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Navigation.1.11\lib\4.5\Navigation.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
@@ -65,7 +62,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="App_Start\FluentStateInfoConfig.cs" />
     <Compile Include="Vues\vueAjoutPraticienAUneActivite.xaml.cs">
       <DependentUpon>vueAjoutPraticienAUneActivite.xaml</DependentUpon>
     </Compile>
@@ -125,13 +121,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="App_Browsers\Navigation.browser" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="StateInfo.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -148,10 +142,6 @@
       <Project>{7ab511e5-f132-4023-81d9-4deaad9b29fa}</Project>
       <Name>GstClasses</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Scripts\navigation.mvc.js" />
-    <Content Include="Scripts\navigation.mvc.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

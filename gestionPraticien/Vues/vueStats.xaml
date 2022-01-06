@@ -8,7 +8,7 @@
         Title="vueStats" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="350,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="91" FontSize="15"><Run Text="Statistiques"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="53,55,0,0" TextWrapping="Wrap" Text="Nombre de spécialité par praticiens : " VerticalAlignment="Top" Height="40" Width="141"/>
+        <TextBlock HorizontalAlignment="Left" Margin="27,55,0,0" TextWrapping="Wrap" Text="Nombre de spécialité par praticiens : " VerticalAlignment="Top" Height="40" Width="141"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="300,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="141"><Run Text="Praticiens possédants le plus de spécialité :"/></TextBlock>
 
@@ -22,7 +22,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="551,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="141"><Run Text="Le nombre de praticiens dont le coefficient de notoriété est inférieur à la moyenne :"/></TextBlock>
         <TextBlock Name="txtCoefInferieur" Width="141" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="551,279,100,85" Height="55"></TextBlock>
 
-        <ListBox x:Name="LbSpeDuPraticien"  HorizontalAlignment="Left" Height="217" VerticalAlignment="Top" Width="141" Margin="53,100,0,0">
+        <ListBox x:Name="LbSpeDuPraticien"  HorizontalAlignment="Left" Height="217" VerticalAlignment="Top" Width="208" Margin="27,97,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -33,29 +33,27 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox x:Name="LbPraticienAyantLePlusDeSpe"  HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="141" Margin="300,97,0,0">
+        <ListBox x:Name="LbPraticienAyantLePlusDeSpe"  HorizontalAlignment="Left" Height="85" VerticalAlignment="Top" Width="211" Margin="300,97,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding NumeroPraticien}" Width="50"></TextBlock>
                         <TextBlock Text="{Binding NomPraticien}" Width="100"></TextBlock>
                         <TextBlock Text="{Binding PrenomPraticien}" Width="100"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox x:Name="LbPraticienAyantLeMoinsDeSpe"  HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="141" Margin="300,239,0,0">
+        <ListBox x:Name="LbPraticienAyantLeMoinsDeSpe"  HorizontalAlignment="Left" Height="95" VerticalAlignment="Top" Width="211" Margin="300,239,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding NumeroPraticien}" Width="50"></TextBlock>
                         <TextBlock Text="{Binding NomPraticien}" Width="100"></TextBlock>
                         <TextBlock Text="{Binding PrenomPraticien}" Width="100"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox x:Name="LbPraticienAyantJamaisParticiperAUneActivite"  HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="141" Margin="300,354,0,0">
+        <ListBox x:Name="LbPraticienAyantJamaisParticiperAUneActivite"  HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="211" Margin="300,354,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

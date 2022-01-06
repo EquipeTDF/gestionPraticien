@@ -18,7 +18,7 @@
         <Button Content="Modifier" HorizontalAlignment="Left" Margin="400,143,0,0" VerticalAlignment="Top" Width="81" Name="btnModifier" Click="btnModifier_Click"/>
         <Button Content="Ajouter" HorizontalAlignment="Left" Margin="400,310,0,0" VerticalAlignment="Top" Width="81" Name="btnAjouter" Click="btnAjouter_Click"/>
         
-        <ListBox x:Name="lbDesSpe"  HorizontalAlignment="Left" Height="244" VerticalAlignment="Top" Width="208" Margin="53,86,0,0" SelectionChanged="lbSpeDuPraticien_SelectionChanged">
+        <ListBox x:Name="lbDesSpe"  HorizontalAlignment="Left" Height="244" VerticalAlignment="Top" Width="208" Margin="53,86,0,0" SelectionChanged="lbDesSpe_SelectionChanged" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

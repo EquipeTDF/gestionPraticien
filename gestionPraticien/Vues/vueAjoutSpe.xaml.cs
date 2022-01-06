@@ -48,10 +48,10 @@ namespace gestionPraticien.Vues
             }
             else
             {
-                gst.UpdateSpe((lbDesSpe.SelectedItem as Specialite).NumSpe, txtModifSpe.Text);
+                gst.UpdateSpe((lbDesSpe.SelectedItem as Specialite).IdSpe , txtModifSpe.Text);
             }
         }
-
+        
         private void btnAjouter_Click(object sender, RoutedEventArgs e)
         {
             if (txtNomSpe.Text == "")
@@ -62,6 +62,11 @@ namespace gestionPraticien.Vues
             {
                 gst.AjouterSpe(txtNomSpe.Text);
             }
+        }
+
+        private void lbDesSpe_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            txtModifSpe.Text = (lbDesSpe.SelectedItem as Specialite).NomSpe;
         }
     }
 }

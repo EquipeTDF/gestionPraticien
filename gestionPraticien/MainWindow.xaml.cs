@@ -11,7 +11,6 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using gestionPraticien.Vues;
 using GstBDDPraticien;
@@ -56,7 +55,8 @@ namespace gestionPraticien
 
         private void Button_ClickStatPraticien(object sender, RoutedEventArgs e)
         {
-
+            vueStats vueStat = new vueStats(gst);
+            vueStat.Show();
         }
 
         private void lstPraticiens_SelectionChanged(object sender, SelectionChangedEventArgs e)
