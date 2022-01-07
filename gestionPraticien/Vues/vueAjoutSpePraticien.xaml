@@ -14,7 +14,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="476,56,0,0" TextWrapping="Wrap" Text="Liste des spécialités non possédées :" VerticalAlignment="Top" Width="217"/>
         <TextBlock HorizontalAlignment="Left" Margin="328,281,0,0" TextWrapping="Wrap" Text="Spécialisation : " VerticalAlignment="Top"/>
         <Button Content="Ajout" HorizontalAlignment="Left" Margin="328,360,0,0" VerticalAlignment="Top" Width="81" Name="btnAjout" Click="btnAjout_Click"/>
-        <Slider HorizontalAlignment="Left" Margin="296,308,0,0" VerticalAlignment="Top" Width="140" Minimum="0" Maximum="5" Name="slSpe"/>
+        <Slider HorizontalAlignment="Left" Margin="296,308,0,0" TickFrequency="1" VerticalAlignment="Top" Width="140" Minimum="0" Maximum="5"  Name="slSpe" ValueChanged="slSpe_ValueChanged"/>
         <ListBox Name="lbPraticiens" HorizontalAlignment="Left" Height="220" Margin="56,77,0,0" VerticalAlignment="Top" Width="213" SelectionChanged="lbPraticiens_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -36,5 +36,6 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <RadioButton Name="rbDiplome"  Content="Posséder" HorizontalAlignment="Left" Margin="321,140,0,0" VerticalAlignment="Top"/>
+        <TextBlock Name="txtSliderValeur" HorizontalAlignment="Left" Margin="343,331,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
     </Grid>
 </Window>

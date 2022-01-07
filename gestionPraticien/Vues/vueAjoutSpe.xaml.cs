@@ -49,6 +49,8 @@ namespace gestionPraticien.Vues
             else
             {
                 gst.UpdateSpe((lbDesSpe.SelectedItem as Specialite).IdSpe , txtModifSpe.Text);
+                lbDesSpe.ItemsSource = Gst.GetLesSpecialite();
+
             }
         }
         
@@ -61,12 +63,16 @@ namespace gestionPraticien.Vues
             else
             {
                 gst.AjouterSpe(txtNomSpe.Text);
+                lbDesSpe.ItemsSource = Gst.GetLesSpecialite();
             }
         }
 
         private void lbDesSpe_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            txtModifSpe.Text = (lbDesSpe.SelectedItem as Specialite).NomSpe;
+        {   
+            if (lbDesSpe.SelectedItem != null)
+            {
+                txtModifSpe.Text = ((lbDesSpe.SelectedItem as Specialite).NomSpe).ToString();
+            }
         }
     }
 }
