@@ -26,7 +26,8 @@ namespace GstBDDPraticien
 
         public List<Praticien> GetLesPraticiens()
         {
-            // récupère tout les praticies dans la base de données et les instancies
+            //Récupère tout les praticiens dans la base de données et les instancies
+
             List<Praticien> mesPraticiens = new List<Praticien>();
             cmd = new MySqlCommand("SELECT praticien.PRA_NUM, praticien.PRA_NOM, praticien.PRA_PRENOM FROM praticien", cnx);
             dr = cmd.ExecuteReader();
@@ -41,6 +42,8 @@ namespace GstBDDPraticien
 
         public List<Specialite> GetSpecialitesDuPraticien(int unNumPraticien)
         {
+            //Récupère les spécialités d'un praticien donné en fonction de son numéro
+
             List<Specialite> mesSpecialites = new List<Specialite>();
             cmd = new MySqlCommand("SELECT specialite.SPE_CODE, specialite.SPE_LIBELLE FROM specialite INNER JOIN posseder ON specialite.SPE_CODE = posseder.SPE_CODE WHERE posseder.PRA_NUM =" + unNumPraticien, cnx);
             dr = cmd.ExecuteReader();
@@ -55,6 +58,8 @@ namespace GstBDDPraticien
 
         public List<Activite> GetActivitesDuPraticien(int unNumPraticien)
         {
+            //Récupère les Activités d'un pratiticien donné en fonction de son numéro
+
             List<Activite> mesActivites = new List<Activite>();
             cmd = new MySqlCommand("SELECT activite_compl.AC_THEME FROM activite_compl INNER JOIN inviter ON inviter.AC_NUM = activite_compl.AC_NUM WHERE inviter.PRA_NUM = " + unNumPraticien, cnx);
             dr = cmd.ExecuteReader();
@@ -68,6 +73,8 @@ namespace GstBDDPraticien
         }
         public List<Specialite> GetSpecialitesNonPossedesDuPraticien(int unNumPraticien)
         {
+            //Récupère les spécialités du praticien donné en fonction de son numéro
+
             List<Specialite> mesSpecialites = new List<Specialite>();
             cmd = new MySqlCommand("SELECT specialite.SPE_CODE, specialite.SPE_LIBELLE FROM specialite WHERE specialite.SPE_LIBELLE NOT IN (SELECT specialite.SPE_LIBELLE FROM specialite INNER JOIN posseder ON specialite.SPE_CODE = posseder.SPE_CODE WHERE posseder.PRA_NUM =" + unNumPraticien + ")", cnx);
             dr = cmd.ExecuteReader();
@@ -82,6 +89,8 @@ namespace GstBDDPraticien
 
         public List<Activite> GetActivitesNonInvitesDuPraticien(int unNumPraticien)
         {
+            //Récupère les activités où le praticien donné en fonction de son numéro n'a pas été invité
+
             List<Activite> mesActivites = new List<Activite>();
             cmd = new MySqlCommand("SELECT activite_compl.AC_NUM, activite_compl.AC_THEME FROM activite_compl  WHERE activite_compl.AC_NUM NOT IN ( SELECT activite_compl.AC_NUM FROM activite_compl INNER JOIN inviter ON inviter.AC_NUM = activite_compl.AC_NUM WHERE inviter.PRA_NUM = " + unNumPraticien + ")", cnx);
             dr = cmd.ExecuteReader();
@@ -96,6 +105,8 @@ namespace GstBDDPraticien
 
         public void AjouterSpePraticien(int unNumPraticien, int unNumSpe, int estDiplome, int unCoef)
         {
+            //Ajoute une spécialité à un praticien avec son coef et s'il possède le diplôme
+
             string connectionString = cnx.ConnectionString;
 
             MySqlConnection connection = null;
@@ -122,6 +133,8 @@ namespace GstBDDPraticien
         }
         public void SupprimerSpePraticien(int unNumPraticien, int unNumSpe)
         {
+            //Supprime la specialité d'un praticien donné en fonction de son numéro
+
             string connectionString = cnx.ConnectionString;
 
             MySqlConnection connection = null;
@@ -146,6 +159,8 @@ namespace GstBDDPraticien
         }
         public void AjouterActiviteAPraticien(int unNumPraticien, int unNumActivite, int estSpecialiste)
         {
+            //Ajoute une activité à un praticien en spécifiant s'il est spécialiste de celle-ci
+
             string connectionString = cnx.ConnectionString;
 
             MySqlConnection connection = null;
@@ -173,6 +188,8 @@ namespace GstBDDPraticien
 
         public List<Specialite> GetLesSpecialite()
         {
+            //Récupère toutes les spécialités
+
             List<Specialite> lesSpecialites = new List<Specialite>();
             cmd = new MySqlCommand("SELECT SPE_CODE, SPE_LIBELLE FROM specialite", cnx);
             dr = cmd.ExecuteReader();
@@ -185,8 +202,10 @@ namespace GstBDDPraticien
             return lesSpecialites;
         }
 
-        public List<Praticien> GetLesSpeTotal()
+        public List<Praticien> GetNbSpeParPraticiens()
         {
+            //Récupère le nom, le prénom et le nombre de spécialités pour chaque praticiens
+
             List<Praticien> lesSpeTotal = new List<Praticien>();
             cmd = new MySqlCommand("SELECT PRA_NOM, PRA_PRENOM, COUNT(pos.SPE_CODE) FROM praticien p INNER JOIN posseder pos ON p.PRA_NUM = pos.PRA_NUM GROUP BY p.PRA_NUM", cnx);
             dr = cmd.ExecuteReader();
@@ -202,7 +221,9 @@ namespace GstBDDPraticien
 
         public List<Praticien> GetPraticienAvecLePlusDeSpe()
         {
-            List<Praticien> lesPraticiens = GetLesSpeTotal();
+            //Récupère le praticien possédant le plus de spécialités
+
+            List<Praticien> lesPraticiens = GetNbSpeParPraticiens();
             List<Praticien> lesPraticiensSpeMax = new List<Praticien>();
 
             int nbSpeMax = 0;
@@ -226,7 +247,9 @@ namespace GstBDDPraticien
 
         public List<Praticien> GetPraticienAvecLeMoinsDeSpe()
         {
-            List<Praticien> lesPraticiens = GetLesSpeTotal();
+            //Récupère le praticien possédant le moins de spécialtés
+
+            List<Praticien> lesPraticiens = GetNbSpeParPraticiens();
             List<Praticien> lesPraticiensSpeMin = new List<Praticien>();
 
             int nbSpeMin = 1;
@@ -250,6 +273,8 @@ namespace GstBDDPraticien
 
         public List<Praticien> GetPraticienAyantJamaisParticiperAUneActivite()
         {
+            //Récupère les praticiens n'ayant jamais participé à une activité
+
             List<Praticien> lesPraticiensAyantJamaisParticiperAUneActivite = new List<Praticien>();
             cmd = new MySqlCommand("SELECT PRA_NUM, PRA_NOM, PRA_PRENOM FROM praticien WHERE PRA_NUM NOT IN (SELECT PRA_NUM FROM inviter)", cnx);
             dr = cmd.ExecuteReader();
@@ -264,6 +289,8 @@ namespace GstBDDPraticien
 
         public void UpdateSpe(int unNumero, string unNom)
         {
+            //Modifie le nom (unNom) d'une spécialité définie par son numéro
+
             string connectionString = cnx.ConnectionString;
 
             MySqlConnection connection = null;
@@ -289,6 +316,8 @@ namespace GstBDDPraticien
 
         public void AjouterSpe(string unNom)
         {
+            //Ajoute une spécialité à la base de données
+
             string connectionString = cnx.ConnectionString;
 
             MySqlConnection connection = null;
@@ -313,6 +342,8 @@ namespace GstBDDPraticien
 
         public double GetCoefNotorieteSup()
         {
+            //Récupère le nombre de praticiens ayant un coefficient de notoriété supérieur à la moyenne
+
             double coefSup = 0;
             cmd = new MySqlCommand("SELECT COUNT(PRA_NUM) FROM praticien WHERE PRA_COEFNOTORIETE > (SELECT AVG(PRA_COEFNOTORIETE) FROM praticien)", cnx);
             dr = cmd.ExecuteReader();
@@ -325,6 +356,8 @@ namespace GstBDDPraticien
 
         public double GetCoefNotorieteInf()
         {
+            //Récupère le nombre de praticiens ayant un coefficient de notoriété inférieur à la moyenne
+
             double coefInf = 0;
             cmd = new MySqlCommand("SELECT COUNT(PRA_NUM) FROM praticien WHERE PRA_COEFNOTORIETE < (SELECT AVG(PRA_COEFNOTORIETE) FROM praticien)", cnx);
             dr = cmd.ExecuteReader();
