@@ -7,7 +7,7 @@
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="vueStats" Height="450" Width="800" Loaded="Window_Loaded">
-    <Grid>
+    <Grid Margin="10,0,-0.4,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="270*"/>
             <ColumnDefinition Width="523*"/>
@@ -27,7 +27,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="111.6,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="255" Grid.Column="1"><Run Text="Le nombre de praticiens dont le coefficient de notoriété est inférieur à la moyenne :"/></TextBlock>
         <TextBlock Name="txtCoefInferieur" Width="88" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="ExtraLight" FontSize="40" Margin="383.6,343,51.6,10" Height="67" RenderTransformOrigin="0.698,0.513" Grid.Column="1"></TextBlock>
 
-        <ListBox x:Name="LbSpeDuPraticien"  HorizontalAlignment="Left" Height="217" VerticalAlignment="Top" Width="208" Margin="27,97,0,0">
+        <!--<ListBox x:Name="LbSpeDuPraticien"  HorizontalAlignment="Left" Height="217" VerticalAlignment="Top" Width="208" Margin="27,97,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -37,7 +37,7 @@
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListBox>
+        </ListBox>-->
         <ListBox x:Name="LbPraticienAyantLePlusDeSpe"  HorizontalAlignment="Left" Height="85" VerticalAlignment="Top" Width="211" Margin="29.6,97,0,0" Grid.Column="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -70,7 +70,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <lvc:PieChart Name="GraphSpeParPraticien">
+        <lvc:PieChart Name="GraphSpeParPraticien" Margin="0,97,0.4,82">
             
         </lvc:PieChart>
     </Grid>

@@ -337,17 +337,17 @@ namespace GstBDDPraticien
 
         public List<GraphSpeParPraticien> GetLeGraf()
         {
-            List<GraphSpeParPraticien> lesSpeTotal = new List<GraphSpeParPraticien>();
+            List<GraphSpeParPraticien> lesGraphs = new List<GraphSpeParPraticien>();
             cmd = new MySqlCommand("SELECT PRA_NOM, COUNT(pos.SPE_CODE) FROM praticien p INNER JOIN posseder pos ON p.PRA_NUM = pos.PRA_NUM GROUP BY p.PRA_NUM", cnx);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                GraphSpeParPraticien unPraticien = new GraphSpeParPraticien(dr[0].ToString(), Convert.ToInt16(dr[1].ToString()));
+                GraphSpeParPraticien leGraph = new GraphSpeParPraticien(dr[0].ToString(), Convert.ToInt16(dr[1].ToString()));
 
-                lesSpeTotal.Add(unPraticien);
+                lesGraphs.Add(leGraph);
             }
             dr.Close();
-            return lesSpeTotal;
+            return lesGraphs;
         }
     }
 
