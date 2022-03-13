@@ -36,9 +36,6 @@ namespace gestionPraticien.Vues
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //LbSpeDuPraticien.ItemsSource = gst.GetLesSpeTotal();
-            LbPraticienAyantLePlusDeSpe.ItemsSource = gst.GetPraticienAvecLePlusDeSpe();
-            LbPraticienAyantLeMoinsDeSpe.ItemsSource = gst.GetPraticienAvecLeMoinsDeSpe();
             LbPraticienAyantJamaisParticiperAUneActivite.ItemsSource = gst.GetPraticienAyantJamaisParticiperAUneActivite();
             txtCoefSuperieur.Text = " " + gst.GetCoefNotorieteSup().ToString();
             txtCoefInferieur.Text = " " + gst.GetCoefNotorieteInf().ToString();
@@ -48,16 +45,64 @@ namespace gestionPraticien.Vues
 
             //List<String> lesNoms = new List<String>();
 
-            foreach (GraphSpeParPraticien gp in gst.GetLeGraf())
+            foreach (GraphSpeParPraticien gp in gst.GetLeGrafNbSpeParPraticien())
             {
                 PieSeries ps = new PieSeries();
-                ChartValues<int> line = new ChartValues<int>();
+                ChartValues<int> part = new ChartValues<int>();
                 ps.Title = gp.NomPraticien;
-                line.Add(gp.NombreSpe);
-                ps.Values = line ;
+                part.Add(gp.NombreSpe);
+                ps.Values = part ;
                 ps.DataLabels = true;
                 GraphSpecialiteParPraticien.Series.Add(ps);
             }
+
+            SetPraticienAvecLePlusDeSpeGraph();
+            SetPraticienAvecLeMoinsDeSpeGraph();
+
+
+        }
+
+        public void SetPraticienAvecLePlusDeSpeGraph()
+        {
+            ColumnSeries cs = new ColumnSeries();
+            cs.Fill = Brushes.Blue;
+            ChartValues<double> line = new ChartValues<double>();
+
+            List<string> lesNoms = new List<string>();
+
+            foreach (Praticien praticien in gst.GetPraticienAvecLePlusDeSpe())
+            {
+                line.Add(praticien.NombreDeSpe);
+                lesNoms.Add(praticien.NomPraticien);
+            }
+            cs.Values = line;
+
+            Axis axe = new Axis();
+            axe.Labels = lesNoms;
+
+            graphPraticiensPlusDeSpe.AxisX.Add(axe);
+            graphPraticiensPlusDeSpe.Series.Add(cs);
+        }
+        public void SetPraticienAvecLeMoinsDeSpeGraph()
+        {
+            RowSeries cs = new RowSeries();
+            cs.Fill = Brushes.Blue;
+            ChartValues<double> line = new ChartValues<double>();
+
+            List<string> lesNoms = new List<string>();
+
+            foreach (Praticien praticien in gst.GetPraticienAvecLeMoinsDeSpe())
+            {
+                line.Add(praticien.NombreDeSpe);
+                lesNoms.Add(praticien.NomPraticien);
+            }
+            cs.Values = line;
+
+            Axis axe = new Axis();
+            axe.Labels = lesNoms;
+
+            graphPraticiensMoinsDeSpe.AxisY.Add(axe);
+            graphPraticiensMoinsDeSpe.Series.Add(cs);
         }
     }
 }

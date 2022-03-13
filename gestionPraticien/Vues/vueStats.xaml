@@ -7,6 +7,8 @@
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="vueStats" Height="450" Width="800" Loaded="Window_Loaded">
+    
+
     <Grid Margin="10,0,-0.4,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="270*"/>
@@ -38,26 +40,12 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>-->
-        <ListBox x:Name="LbPraticienAyantLePlusDeSpe"  HorizontalAlignment="Left" Height="85" VerticalAlignment="Top" Width="211" Margin="29.6,97,0,0" Grid.Column="1">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding NomPraticien}" Width="100"></TextBlock>
-                        <TextBlock Text="{Binding PrenomPraticien}" Width="100"></TextBlock>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <ListBox x:Name="LbPraticienAyantLeMoinsDeSpe"  HorizontalAlignment="Left" Height="87" VerticalAlignment="Top" Width="211" Margin="29.6,227,0,0" Grid.Column="1">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding NomPraticien}" Width="100"></TextBlock>
-                        <TextBlock Text="{Binding PrenomPraticien}" Width="100"></TextBlock>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+
+
+        <lvc:CartesianChart Name="graphPraticiensPlusDeSpe" Grid.Column="1" Margin="15,102,259,237"></lvc:CartesianChart>
+
+        <lvc:CartesianChart Name="graphPraticiensMoinsDeSpe" Grid.Column="1" Margin="15,227,259,112"></lvc:CartesianChart>
+        
         <ListBox x:Name="LbPraticienAyantJamaisParticiperAUneActivite"  HorizontalAlignment="Left" Height="202" VerticalAlignment="Top" Width="211" Margin="280.6,112,0,0" Grid.Column="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -71,7 +59,7 @@
         </ListBox>
 
         <lvc:PieChart Name="GraphSpecialiteParPraticien" Margin="0,97,0.4,82">
-                        <lvc:PieChart.Series>
+            <lvc:PieChart.Series>
                 <lvc:PieSeries Title="Maria" Values="3" DataLabels="True"/>
             </lvc:PieChart.Series>
         </lvc:PieChart>

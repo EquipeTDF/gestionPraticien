@@ -221,7 +221,7 @@ namespace GstBDDPraticien
 
         public List<Praticien> GetPraticienAvecLePlusDeSpe()
         {
-            //Récupère le praticien possédant le plus de spécialités
+            //Récupère les praticiens possédant le plus de spécialités
 
             List<Praticien> lesPraticiens = GetNbSpeParPraticiens();
             List<Praticien> lesPraticiensSpeMax = new List<Praticien>();
@@ -247,15 +247,21 @@ namespace GstBDDPraticien
 
         public List<Praticien> GetPraticienAvecLeMoinsDeSpe()
         {
-            //Récupère le praticien possédant le moins de spécialtés
+            //Récupère les praticiens possédant le moins de spécialtés
 
             List<Praticien> lesPraticiens = GetNbSpeParPraticiens();
             List<Praticien> lesPraticiensSpeMin = new List<Praticien>();
 
-            int nbSpeMin = 1;
+            int nbSpeMin = -1;
             foreach (Praticien p in lesPraticiens)
             {
-
+                if (nbSpeMin == -1)
+                {
+                    nbSpeMin = p.NombreDeSpe;
+                    lesPraticiensSpeMin.Clear();
+                    lesPraticiensSpeMin.Add(p);
+                    continue;
+                }
                 if (p.NombreDeSpe < nbSpeMin)
                 {
                     nbSpeMin = p.NombreDeSpe;
@@ -368,8 +374,10 @@ namespace GstBDDPraticien
             return coefInf;
         }
 
-        public List<GraphSpeParPraticien> GetLeGraf()
+        public List<GraphSpeParPraticien> GetLeGrafNbSpeParPraticien()
         {
+            //Renvoie les particiens avec leurs nombre de spécialisations
+
             List<GraphSpeParPraticien> lesGraphs = new List<GraphSpeParPraticien>();
             cmd = new MySqlCommand("SELECT PRA_NOM, COUNT(pos.SPE_CODE) FROM praticien p INNER JOIN posseder pos ON p.PRA_NUM = pos.PRA_NUM GROUP BY p.PRA_NUM", cnx);
             dr = cmd.ExecuteReader();
@@ -380,6 +388,20 @@ namespace GstBDDPraticien
                 lesGraphs.Add(leGraph);
             }
             dr.Close();
+            return lesGraphs;
+        }
+
+        public List<GraphSpeParPraticien> GetLeGrafNbSpeParPraticienMax()
+        {
+            //Renvoie les praticiens ayant le plus de spécialisations avec leur spécialisation
+
+            List<GraphSpeParPraticien> lesGraphs = new List<GraphSpeParPraticien>();
+            foreach (Praticien p in GetPraticienAvecLePlusDeSpe())
+            {
+                GraphSpeParPraticien leGraph = new GraphSpeParPraticien(dr[0].ToString(), Convert.ToInt16(dr[1].ToString()));
+
+                lesGraphs.Add(leGraph);
+            }
             return lesGraphs;
         }
     }
