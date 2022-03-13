@@ -350,5 +350,4 @@ namespace GstBDDPraticien
             return lesGraphs;
         }
     }
-
 }

@@ -36,25 +36,28 @@ namespace gestionPraticien.Vues
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            LbSpeDuPraticien.ItemsSource = gst.GetLesSpeTotal();
+            //LbSpeDuPraticien.ItemsSource = gst.GetLesSpeTotal();
             LbPraticienAyantLePlusDeSpe.ItemsSource = gst.GetPraticienAvecLePlusDeSpe();
             LbPraticienAyantLeMoinsDeSpe.ItemsSource = gst.GetPraticienAvecLeMoinsDeSpe();
             LbPraticienAyantJamaisParticiperAUneActivite.ItemsSource = gst.GetPraticienAyantJamaisParticiperAUneActivite();
             txtCoefSuperieur.Text = " " + gst.GetCoefNotorieteSup().ToString();
             txtCoefInferieur.Text = " " + gst.GetCoefNotorieteInf().ToString();
 
-            PieSeries ps = new PieSeries();
-            ps.Fill = Brushes.Red;
-            ChartValues<int> line = new ChartValues<int>();
+            //PieSeries ps = new PieSeries();
+            //ChartValues<int> line = new ChartValues<int>();
 
-            List<String> lesNoms = new List<String>();
+            //List<String> lesNoms = new List<String>();
 
             foreach (GraphSpeParPraticien gp in gst.GetLeGraf())
             {
+                PieSeries ps = new PieSeries();
+                ChartValues<int> line = new ChartValues<int>();
+                ps.Title = gp.NomPraticien;
                 line.Add(gp.NombreSpe);
-                lesNoms.Add(gp.NomPraticien);
+                ps.Values = line ;
+                ps.DataLabels = true;
+                GraphSpecialiteParPraticien.Series.Add(ps);
             }
-            ps.Values = line;
         }
     }
 }
