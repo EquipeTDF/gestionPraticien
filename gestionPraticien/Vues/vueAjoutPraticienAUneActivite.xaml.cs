@@ -56,7 +56,7 @@ namespace gestionPraticien.Vues
             else
             {
                 int estSpecialiste = 0;
-                if ((bool)rbEstSpe.IsChecked)
+                if ((bool)cbEstSpe.IsChecked)
                 {
                     estSpecialiste = 1;
                 }

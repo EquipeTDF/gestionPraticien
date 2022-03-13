@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GstBDDPraticien;
+using LiveCharts;
+using LiveCharts.Wpf;
 using GstClasses;
 
 namespace gestionPraticien.Vues
@@ -40,6 +42,7 @@ namespace gestionPraticien.Vues
             LbPraticienAyantJamaisParticiperAUneActivite.ItemsSource = gst.GetPraticienAyantJamaisParticiperAUneActivite();
             txtCoefSuperieur.Text = " " + gst.GetCoefNotorieteSup().ToString();
             txtCoefInferieur.Text = " " + gst.GetCoefNotorieteInf().ToString();
+
 
         }
     }

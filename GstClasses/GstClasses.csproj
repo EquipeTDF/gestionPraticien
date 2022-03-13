@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activite.cs" />
+    <Compile Include="GraphSpeParPraticien.cs" />
     <Compile Include="Specialite.cs" />
     <Compile Include="Praticien.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

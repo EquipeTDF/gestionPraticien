@@ -74,10 +74,5 @@ namespace gestionPraticien.Vues
                 txtModifSpe.Text = ((lbDesSpe.SelectedItem as Specialite).NomSpe).ToString();
             }
         }
-
-        private void lbDesSpe_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }

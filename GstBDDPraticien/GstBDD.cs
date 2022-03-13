@@ -42,11 +42,11 @@ namespace GstBDDPraticien
         public List<Specialite> GetSpecialitesDuPraticien(int unNumPraticien)
         {
             List<Specialite> mesSpecialites = new List<Specialite>();
-            cmd = new MySqlCommand("SELECT specialite.SPE_LIBELLE FROM specialite INNER JOIN posseder ON specialite.SPE_CODE = posseder.SPE_CODE WHERE posseder.PRA_NUM ="+ unNumPraticien, cnx);
+            cmd = new MySqlCommand("SELECT specialite.SPE_CODE, specialite.SPE_LIBELLE FROM specialite INNER JOIN posseder ON specialite.SPE_CODE = posseder.SPE_CODE WHERE posseder.PRA_NUM =" + unNumPraticien, cnx);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                Specialite uneSpecialite = new Specialite(dr[0].ToString());
+                Specialite uneSpecialite = new Specialite(Convert.ToInt32(dr[0].ToString()), dr[1].ToString());
                 mesSpecialites.Add(uneSpecialite);
             }
             dr.Close();
@@ -110,6 +110,30 @@ namespace GstBDDPraticien
                 cmd.Parameters.AddWithValue("@unNumSpe", Convert.ToInt16(unNumSpe));
                 cmd.Parameters.AddWithValue("@estDiplome", Convert.ToInt16(estDiplome));
                 cmd.Parameters.AddWithValue("@unCoef", Convert.ToInt16(unCoef));
+                cmd.Prepare();
+
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                if (connection != null)
+                    connection.Close();
+            }
+        }
+        public void SupprimerSpePraticien(int unNumPraticien, int unNumSpe)
+        {
+            string connectionString = cnx.ConnectionString;
+
+            MySqlConnection connection = null;
+            try
+            {
+                connection = new MySqlConnection(connectionString);
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = "DELETE FROM `posseder` WHERE PRA_NUM = @unNumPraticien AND SPE_CODE = @unNumSpe";
+                cmd.Parameters.AddWithValue("@unNumPraticien", Convert.ToInt16(unNumPraticien));
+                cmd.Parameters.AddWithValue("@unNumSpe", Convert.ToInt16(unNumSpe));
                 cmd.Prepare();
 
                 cmd.ExecuteNonQuery();
@@ -309,6 +333,21 @@ namespace GstBDDPraticien
             dr.Close();
 
             return coefInf;
+        }
+
+        public List<GraphSpeParPraticien> GetLeGraf()
+        {
+            List<GraphSpeParPraticien> lesSpeTotal = new List<GraphSpeParPraticien>();
+            cmd = new MySqlCommand("SELECT PRA_NOM, COUNT(pos.SPE_CODE) FROM praticien p INNER JOIN posseder pos ON p.PRA_NUM = pos.PRA_NUM GROUP BY p.PRA_NUM", cnx);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                GraphSpeParPraticien unPraticien = new GraphSpeParPraticien(dr[0].ToString(), Convert.ToInt16(dr[1].ToString()));
+
+                lesSpeTotal.Add(unPraticien);
+            }
+            dr.Close();
+            return lesSpeTotal;
         }
     }
 
