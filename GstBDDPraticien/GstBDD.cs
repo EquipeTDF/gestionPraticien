@@ -19,7 +19,7 @@ namespace GstBDDPraticien
 
         public GstBDD()
         {
-            string chaine = "Server=localhost;Database=bddpraticien;Uid=root;Pwd=;SslMode=none";
+            string chaine = "Server=localhost;Database=bddpraticien ;Uid=root;Pwd=;SslMode=none";
             cnx = new MySqlConnection(chaine);
             cnx.Open();
         }
