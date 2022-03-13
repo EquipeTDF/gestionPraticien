@@ -70,9 +70,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <lvc:PieChart Name="GraphSpecialiteParPraticien" Margin="0,97,0.4,82">
-                        <lvc:PieChart.Series>
-            </lvc:PieChart.Series>
+        <lvc:PieChart Name="GraphSpecialiteParPraticien">
         </lvc:PieChart>
     </Grid>
 </Window>
