@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GstBDDPraticien;
+using LiveCharts;
+using LiveCharts.Wpf;
 using GstClasses;
 
 namespace gestionPraticien.Vues
@@ -41,6 +43,18 @@ namespace gestionPraticien.Vues
             txtCoefSuperieur.Text = " " + gst.GetCoefNotorieteSup().ToString();
             txtCoefInferieur.Text = " " + gst.GetCoefNotorieteInf().ToString();
 
+            PieSeries ps = new PieSeries();
+            ps.Fill = Brushes.Red;
+            ChartValues<int> line = new ChartValues<int>();
+
+            List<String> lesNoms = new List<String>();
+
+            foreach (GraphSpeParPraticien gp in gst.GetLeGraf())
+            {
+                line.Add(gp.NombreSpe);
+                lesNoms.Add(gp.NomPraticien);
+            }
+            ps.Values = line;
         }
     }
 }

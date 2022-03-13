@@ -9,7 +9,7 @@
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="187,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="389" FontSize="15"><Run Text="Ajout d'un praticitien à une activité complémentaire"/><Run Text=" :"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="56,57,0,0" TextWrapping="Wrap" Text="Liste des praticiens : " VerticalAlignment="Top" Height="28" Width="141"/>
-        <TextBlock HorizontalAlignment="Left" Margin="495,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217"><Run Text="Liste des "/><Run Text="activités complémentaire :"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="495,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217"><Run Text="Liste des "/><Run Text="activités complémentaire"/><Run Text="s"/><Run Text=" :"/></TextBlock>
         <Button Content="Inviter" HorizontalAlignment="Left" Margin="328,344,0,0" VerticalAlignment="Top" Width="81" Name="btnAjout" Click="btnAjout_Click"/>
         <ListBox Name="lbPraticiens" HorizontalAlignment="Left" Height="220" Margin="56,77,0,0" VerticalAlignment="Top" Width="213" SelectionChanged="lbPraticiens_SelectionChanged">
             <ListBox.ItemTemplate>
@@ -31,6 +31,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <RadioButton Content="Est spécialiste" HorizontalAlignment="Left" Margin="317,145,0,0" VerticalAlignment="Top" Name="rbEstSpe"/>
+        <CheckBox Content="Est spécialiste" Name="cbEstSpe" HorizontalAlignment="Left" Margin="317,145,0,0" VerticalAlignment="Top" Width="92"/>
     </Grid>
 </Window>

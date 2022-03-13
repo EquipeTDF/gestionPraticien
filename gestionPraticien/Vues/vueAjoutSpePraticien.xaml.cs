@@ -41,6 +41,7 @@ namespace gestionPraticien.Vues
             if(lbPraticiens.SelectedItem != null)
             {
                 lstSpecialiteNonPosseder.ItemsSource = gst.GetSpecialitesNonPossedesDuPraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien);
+                lstSpecialitePossedees.ItemsSource = gst.GetSpecialitesDuPraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien);
             }
         }
 
@@ -57,7 +58,7 @@ namespace gestionPraticien.Vues
             else
             {
                 int estDiplome = 0;
-                if ((bool)rbDiplome.IsChecked)
+                if ((bool)cbDiplome.IsChecked)
                 {
                     estDiplome = 1;
                 }
@@ -75,6 +76,26 @@ namespace gestionPraticien.Vues
         private void slSpe_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             txtSliderValeur.Text =  Convert.ToInt16(slSpe.Value).ToString();
+        }
+
+        private void btnRetirer_Click(object sender, RoutedEventArgs e)
+        {
+            if (lbPraticiens.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un praticien", "Erreur de sélection", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (lstSpecialitePossedees.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez sélectionner une spécialité possédée", "Erreur de sélection", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                gst.SupprimerSpePraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien, (lstSpecialitePossedees.SelectedItem as Specialite).IdSpe);
+                if (lbPraticiens.SelectedItem != null)
+                {
+                    lstSpecialitePossedees.ItemsSource = gst.GetSpecialitesDuPraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien);
+                }
+            }
         }
     }
 }

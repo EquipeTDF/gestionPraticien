@@ -4,25 +4,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:gestionPraticien.Vues"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="vueStats" Height="450" Width="800" Loaded="Window_Loaded">
-    <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="350,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="91" FontSize="15"><Run Text="Statistiques"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="27,55,0,0" TextWrapping="Wrap" Text="Nombre de spécialité par praticiens : " VerticalAlignment="Top" Height="40" Width="141"/>
+    <Grid Margin="10,0,-0.4,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="270*"/>
+            <ColumnDefinition Width="523*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Left" Margin="79.6,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="91" FontSize="15" Grid.Column="1"><Run Text="Statistiques"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="27,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="141"><Run Text="Nombre de spécialité"/><Run Text="s"/><Run Text=" par praticiens : "/></TextBlock>
 
-        <TextBlock HorizontalAlignment="Left" Margin="300,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="141"><Run Text="Praticiens possédants le plus de spécialité :"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="29.6,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="141" Grid.Column="1"><Run Text="Praticiens possédants le plus de spécialité"/><Run Text="s"/><Run Text=" :"/></TextBlock>
 
-        <TextBlock HorizontalAlignment="Left" Margin="300,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="141"><Run Text="Praticiens possédants le moins de spécialité :"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="29.6,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="141" Grid.Column="1"><Run Text="Praticiens possédants le moins de spécialité"/><Run Text="s"/><Run Text=" :"/></TextBlock>
 
-        <TextBlock HorizontalAlignment="Left" Margin="551,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="222"><Run Text="Praticiens n'ayant jamais participé à une activité complémentaire : "/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="280.6,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="222" Grid.Column="1"><Run Text="Praticiens n'ayant jamais participé à une activité complémentaire : "/></TextBlock>
 
         <TextBlock HorizontalAlignment="Left" Margin="10,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="234"><Run Text="Le nombre de praticiens dont le coefficient de notoriété est supérieur à la moyenne :"/></TextBlock>
-        <TextBlock Name="txtCoefSuperieur" Width="67" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="ExtraLight" FontSize="40" Margin="259,343,467.6,10" Height="67"></TextBlock>
+        <TextBlock Name="txtCoefSuperieur" Width="67" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="ExtraLight" FontSize="40" Margin="259,343,467.6,10" Height="67" Grid.ColumnSpan="2"></TextBlock>
 
-        <TextBlock HorizontalAlignment="Left" Margin="382,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="255"><Run Text="Le nombre de praticiens dont le coefficient de notoriété est inférieur à la moyenne :"/></TextBlock>
-        <TextBlock Name="txtCoefInferieur" Width="88" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="ExtraLight" FontSize="40" Margin="654,343,51.6,10" Height="67" RenderTransformOrigin="0.698,0.513"></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="111.6,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="255" Grid.Column="1"><Run Text="Le nombre de praticiens dont le coefficient de notoriété est inférieur à la moyenne :"/></TextBlock>
+        <TextBlock Name="txtCoefInferieur" Width="88" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="ExtraLight" FontSize="40" Margin="383.6,343,51.6,10" Height="67" RenderTransformOrigin="0.698,0.513" Grid.Column="1"></TextBlock>
 
-        <ListBox x:Name="LbSpeDuPraticien"  HorizontalAlignment="Left" Height="217" VerticalAlignment="Top" Width="208" Margin="27,97,0,0">
+        <!--<ListBox x:Name="LbSpeDuPraticien"  HorizontalAlignment="Left" Height="217" VerticalAlignment="Top" Width="208" Margin="27,97,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -32,8 +37,8 @@
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListBox>
-        <ListBox x:Name="LbPraticienAyantLePlusDeSpe"  HorizontalAlignment="Left" Height="85" VerticalAlignment="Top" Width="211" Margin="300,97,0,0">
+        </ListBox>-->
+        <ListBox x:Name="LbPraticienAyantLePlusDeSpe"  HorizontalAlignment="Left" Height="85" VerticalAlignment="Top" Width="211" Margin="29.6,97,0,0" Grid.Column="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -43,7 +48,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox x:Name="LbPraticienAyantLeMoinsDeSpe"  HorizontalAlignment="Left" Height="87" VerticalAlignment="Top" Width="211" Margin="300,227,0,0">
+        <ListBox x:Name="LbPraticienAyantLeMoinsDeSpe"  HorizontalAlignment="Left" Height="87" VerticalAlignment="Top" Width="211" Margin="29.6,227,0,0" Grid.Column="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -53,7 +58,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox x:Name="LbPraticienAyantJamaisParticiperAUneActivite"  HorizontalAlignment="Left" Height="202" VerticalAlignment="Top" Width="211" Margin="551,112,0,0">
+        <ListBox x:Name="LbPraticienAyantJamaisParticiperAUneActivite"  HorizontalAlignment="Left" Height="202" VerticalAlignment="Top" Width="211" Margin="280.6,112,0,0" Grid.Column="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -64,5 +69,9 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+        <lvc:PieChart Name="GraphSpeParPraticien" Margin="0,97,0.4,82">
+            
+        </lvc:PieChart>
     </Grid>
 </Window>
