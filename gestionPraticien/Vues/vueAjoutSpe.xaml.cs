@@ -63,5 +63,10 @@ namespace gestionPraticien.Vues
                 gst.AjouterSpe(txtNomSpe.Text);
             }
         }
+
+        private void lbDesSpe_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
