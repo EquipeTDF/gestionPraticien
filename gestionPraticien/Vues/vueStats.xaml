@@ -29,19 +29,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="111.6,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="255" Grid.Column="1"><Run Text="Le nombre de praticiens dont le coefficient de notoriété est inférieur à la moyenne :"/></TextBlock>
         <TextBlock Name="txtCoefInferieur" Width="88" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="ExtraLight" FontSize="40" Margin="383.6,343,51.6,10" Height="67" RenderTransformOrigin="0.698,0.513" Grid.Column="1"></TextBlock>
 
-        <!--<ListBox x:Name="LbSpeDuPraticien"  HorizontalAlignment="Left" Height="217" VerticalAlignment="Top" Width="208" Margin="27,97,0,0">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding NomPraticien}" Width="100"></TextBlock>
-                        <TextBlock Text="{Binding PrenomPraticien}" Width="100"></TextBlock>
-                        <TextBlock Text="{Binding NombreDeSpe}" Width="50"></TextBlock>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>-->
-
-
         <lvc:CartesianChart Name="graphPraticiensPlusDeSpe" Grid.Column="1" Margin="15,102,259,237"></lvc:CartesianChart>
 
         <lvc:CartesianChart Name="graphPraticiensMoinsDeSpe" Grid.Column="1" Margin="15,227,259,112"></lvc:CartesianChart>
@@ -59,9 +46,6 @@
         </ListBox>
 
         <lvc:PieChart Name="GraphSpecialiteParPraticien" Margin="0,97,0.4,82">
-            <lvc:PieChart.Series>
-                <lvc:PieSeries Title="Maria" Values="3" DataLabels="True"/>
-            </lvc:PieChart.Series>
         </lvc:PieChart>
     </Grid>
 </Window>
