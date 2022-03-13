@@ -62,7 +62,7 @@ namespace gestionPraticien.Vues
                 {
                     estDiplome = 1;
                 }
-                foreach(Specialite uneSpe in lstSpecialiteNonPosseder.SelectedItems)
+                foreach (Specialite uneSpe in lstSpecialiteNonPosseder.SelectedItems)
                 {
                     gst.AjouterSpePraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien, uneSpe.IdSpe, estDiplome, Convert.ToInt16(slSpe.Value));
                 }
@@ -90,7 +90,10 @@ namespace gestionPraticien.Vues
             }
             else
             {
-                gst.SupprimerSpePraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien, (lstSpecialitePossedees.SelectedItem as Specialite).IdSpe);
+                foreach (Specialite uneSpe in lstSpecialitePossedees.SelectedItems)
+                {
+                    gst.SupprimerSpePraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien, uneSpe.IdSpe);
+                }
                 if (lbPraticiens.SelectedItem != null)
                 {
                     lstSpecialitePossedees.ItemsSource = gst.GetSpecialitesDuPraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien);

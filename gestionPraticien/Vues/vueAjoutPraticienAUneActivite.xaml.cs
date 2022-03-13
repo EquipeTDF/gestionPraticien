@@ -60,7 +60,10 @@ namespace gestionPraticien.Vues
                 {
                     estSpecialiste = 1;
                 }
-                gst.AjouterActiviteAPraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien, (lstActivitesComplementaires.SelectedItem as Activite).NumActivite, estSpecialiste);
+                foreach (Activite uneAct in lstActivitesComplementaires.SelectedItems)
+                {
+                    gst.AjouterActiviteAPraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien, uneAct.NumActivite, estSpecialiste);
+                }
                 if (lbPraticiens.SelectedItem != null)
                 {
                     lstActivitesComplementaires.ItemsSource = gst.GetActivitesNonInvitesDuPraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien);
