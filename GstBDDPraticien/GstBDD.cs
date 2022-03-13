@@ -28,7 +28,6 @@ namespace GstBDDPraticien
         {
             // récupère tout les praticies dans la base de données et les instancies
             List<Praticien> mesPraticiens = new List<Praticien>();
-
             cmd = new MySqlCommand("SELECT praticien.PRA_NUM, praticien.PRA_NOM, praticien.PRA_PRENOM FROM praticien", cnx);
             dr = cmd.ExecuteReader();
             while (dr.Read())
