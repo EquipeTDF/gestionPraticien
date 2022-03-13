@@ -370,6 +370,7 @@ namespace GstBDDPraticien
 
         public List<GraphSpeParPraticien> GetLeGraf()
         {
+            //Récupère le nom et le nombre de spécialités de tous les praticiens
             List<GraphSpeParPraticien> lesGraphs = new List<GraphSpeParPraticien>();
             cmd = new MySqlCommand("SELECT PRA_NOM, COUNT(pos.SPE_CODE) FROM praticien p INNER JOIN posseder pos ON p.PRA_NUM = pos.PRA_NUM GROUP BY p.PRA_NUM", cnx);
             dr = cmd.ExecuteReader();

@@ -36,17 +36,11 @@ namespace gestionPraticien.Vues
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //LbSpeDuPraticien.ItemsSource = gst.GetLesSpeTotal();
             LbPraticienAyantLePlusDeSpe.ItemsSource = gst.GetPraticienAvecLePlusDeSpe();
             LbPraticienAyantLeMoinsDeSpe.ItemsSource = gst.GetPraticienAvecLeMoinsDeSpe();
             LbPraticienAyantJamaisParticiperAUneActivite.ItemsSource = gst.GetPraticienAyantJamaisParticiperAUneActivite();
             txtCoefSuperieur.Text = " " + gst.GetCoefNotorieteSup().ToString();
             txtCoefInferieur.Text = " " + gst.GetCoefNotorieteInf().ToString();
-
-            //PieSeries ps = new PieSeries();
-            //ChartValues<int> line = new ChartValues<int>();
-
-            //List<String> lesNoms = new List<String>();
 
             foreach (GraphSpeParPraticien gp in gst.GetLeGraf())
             {
