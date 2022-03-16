@@ -7,33 +7,40 @@
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="vueStats" Height="450" Width="800" Loaded="Window_Loaded">
-    
 
-    <Grid Margin="10,0,-0.4,0">
+
+    <Grid Margin="10,0,-0.4,0" Background="#FFB14500">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="270*"/>
             <ColumnDefinition Width="523*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock HorizontalAlignment="Left" Margin="79.6,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="91" FontSize="15" Grid.Column="1"><Run Text="Statistiques"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="27,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="141"><Run Text="Nombre de spécialité"/><Run Text="s"/><Run Text=" par praticiens : "/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="41.8,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="199" FontSize="32" Grid.Column="1" FontWeight="Bold"><Run Text="Statistiques"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="27,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="141" FontWeight="Bold"><Run Text="Nombre de spécialité"/><Run Text="s"/><Run Text=" par praticiens : "/></TextBlock>
 
-        <TextBlock HorizontalAlignment="Left" Margin="29.6,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="141" Grid.Column="1"><Run Text="Praticiens possédants le plus de spécialité"/><Run Text="s"/><Run Text=" :"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="29.6,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="141" Grid.Column="1" FontWeight="Bold"><Run Text="Praticiens possédants le plus de spécialité"/><Run Text="s"/><Run Text=" :"/></TextBlock>
 
-        <TextBlock HorizontalAlignment="Left" Margin="29.6,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="141" Grid.Column="1"><Run Text="Praticiens possédants le moins de spécialité"/><Run Text="s"/><Run Text=" :"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="29.6,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="141" Grid.Column="1" FontWeight="Bold"><Run Text="Praticiens possédants le moins de spécialité"/><Run Text="s"/><Run Text=" :"/></TextBlock>
 
-        <TextBlock HorizontalAlignment="Left" Margin="280.6,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="222" Grid.Column="1"><Run Text="Praticiens n'ayant jamais participé à une activité complémentaire : "/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="280.6,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="222" Grid.Column="1" FontWeight="Bold"><Run Text="Praticiens n'ayant jamais participé à une activité complémentaire : "/></TextBlock>
 
-        <TextBlock HorizontalAlignment="Left" Margin="10,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="234"><Run Text="Le nombre de praticiens dont le coefficient de notoriété est supérieur à la moyenne :"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="10,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="234" FontWeight="Bold"><Run Text="Le nombre de praticiens dont le coefficient de notoriété est supérieur à la moyenne :"/></TextBlock>
         <TextBlock Name="txtCoefSuperieur" Width="67" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="ExtraLight" FontSize="40" Margin="259,343,467.6,10" Height="67" Grid.ColumnSpan="2"></TextBlock>
 
-        <TextBlock HorizontalAlignment="Left" Margin="111.6,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="255" Grid.Column="1"><Run Text="Le nombre de praticiens dont le coefficient de notoriété est inférieur à la moyenne :"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="111.6,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="255" Grid.Column="1" FontWeight="Bold"><Run Text="Le nombre de praticiens dont le coefficient de notoriété est inférieur à la moyenne :"/></TextBlock>
         <TextBlock Name="txtCoefInferieur" Width="88" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="ExtraLight" FontSize="40" Margin="383.6,343,51.6,10" Height="67" RenderTransformOrigin="0.698,0.513" Grid.Column="1"></TextBlock>
 
         <lvc:CartesianChart Name="graphPraticiensPlusDeSpe" Grid.Column="1" Margin="15,102,259,237"></lvc:CartesianChart>
 
         <lvc:CartesianChart Name="graphPraticiensMoinsDeSpe" Grid.Column="1" Margin="15,227,259,112"></lvc:CartesianChart>
-        
-        <ListBox x:Name="LbPraticienAyantJamaisParticiperAUneActivite"  HorizontalAlignment="Left" Height="202" VerticalAlignment="Top" Width="211" Margin="280.6,112,0,0" Grid.Column="1">
+
+        <ListBox x:Name="LbPraticienAyantJamaisParticiperAUneActivite"  HorizontalAlignment="Left" Height="202" VerticalAlignment="Top" Width="211" Margin="280.6,112,0,0" Grid.Column="1" BorderBrush="Black">
+            <ListBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB7B7B7" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="#FFFDFDFD" Offset="0.476"/>
+                </LinearGradientBrush>
+            </ListBox.Background>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
