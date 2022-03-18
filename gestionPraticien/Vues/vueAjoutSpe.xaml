@@ -6,19 +6,26 @@
         xmlns:local="clr-namespace:gestionPraticien.Vues"
         mc:Ignorable="d"
         Title="vueAjoutSpe" Height="450" Width="800" Loaded="Window_Loaded">
-    <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="321,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="140" FontSize="15"><Run Text="Créer une spécialité :"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="53,55,0,0" TextWrapping="Wrap" Text="Liste des spécialités :" VerticalAlignment="Top" Height="26" Width="119"/>
-        <TextBlock HorizontalAlignment="Left" Margin="400,55,0,0" TextWrapping="Wrap" Text="Modifier la spécialité :" VerticalAlignment="Top" Height="26" Width="119"/>
-        <TextBlock HorizontalAlignment="Left" Margin="400,217,0,0" TextWrapping="Wrap" Text="Nom de la spécialité :" VerticalAlignment="Top" Height="26" Width="119"/>
-        
+    <Grid Background="#FFB14503">
+        <TextBlock HorizontalAlignment="Left" Margin="270,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="276" FontSize="28" FontWeight="Bold"><Run Text="Créer une spécialité :"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="53,55,0,0" TextWrapping="Wrap" Text="Liste des spécialités :" VerticalAlignment="Top" Height="26" Width="119" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="400,55,0,0" TextWrapping="Wrap" Text="Modifier la spécialité :" VerticalAlignment="Top" Height="26" Width="159" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="400,217,0,0" TextWrapping="Wrap" Text="Nom de la spécialité :" VerticalAlignment="Top" Height="26" Width="146" FontWeight="Bold"/>
+
         <TextBox Name="txtModifSpe" HorizontalAlignment="Left" Height="46" Margin="400,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"/>
         <TextBox Name="txtNomSpe" HorizontalAlignment="Left" Height="46" Margin="400,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"/>
-        
-        <Button Content="Modifier" HorizontalAlignment="Left" Margin="400,143,0,0" VerticalAlignment="Top" Width="81" Name="btnModifier" Click="btnModifier_Click"/>
-        <Button Content="Ajouter" HorizontalAlignment="Left" Margin="400,310,0,0" VerticalAlignment="Top" Width="81" Name="btnAjouter" Click="btnAjouter_Click"/>
-        
+
+        <Button Content="Modifier" HorizontalAlignment="Left" Margin="400,143,0,0" VerticalAlignment="Top" Width="81" Name="btnModifier" Click="btnModifier_Click" Background="#FF292BFA"/>
+        <Button Content="Ajouter" HorizontalAlignment="Left" Margin="400,310,0,0" VerticalAlignment="Top" Width="81" Name="btnAjouter" Click="btnAjouter_Click" Background="#FF292BF3"/>
+
         <ListBox x:Name="lbDesSpe"  HorizontalAlignment="Left" Height="244" VerticalAlignment="Top" Width="208" Margin="53,86,0,0" SelectionChanged="lbDesSpe_SelectionChanged" >
+            <ListBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB7B7B7" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="#FFFBFBFB" Offset="0.679"/>
+                </LinearGradientBrush>
+            </ListBox.Background>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
