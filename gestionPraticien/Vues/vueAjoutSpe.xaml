@@ -15,8 +15,8 @@
         <TextBox Name="txtModifSpe" HorizontalAlignment="Left" Height="46" Margin="400,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"/>
         <TextBox Name="txtNomSpe" HorizontalAlignment="Left" Height="46" Margin="400,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240"/>
 
-        <Button Content="Modifier" HorizontalAlignment="Left" Margin="400,143,0,0" VerticalAlignment="Top" Width="81" Name="btnModifier" Click="btnModifier_Click" Background="#FF292BFA"/>
-        <Button Content="Ajouter" HorizontalAlignment="Left" Margin="400,310,0,0" VerticalAlignment="Top" Width="81" Name="btnAjouter" Click="btnAjouter_Click" Background="#FF292BF3"/>
+        <Button Content="Modifier" HorizontalAlignment="Left" Margin="400,143,0,0" VerticalAlignment="Top" Width="81" Name="btnModifier" Click="btnModifier_Click" Background="#FF292BFA" Foreground="White" BorderBrush="Black"/>
+        <Button Content="Ajouter" HorizontalAlignment="Left" Margin="400,310,0,0" VerticalAlignment="Top" Width="81" Name="btnAjouter" Click="btnAjouter_Click" Background="#FF292BF3" Foreground="White" BorderBrush="Black"/>
 
         <ListBox x:Name="lbDesSpe"  HorizontalAlignment="Left" Height="244" VerticalAlignment="Top" Width="208" Margin="53,86,0,0" SelectionChanged="lbDesSpe_SelectionChanged" >
             <ListBox.Background>
