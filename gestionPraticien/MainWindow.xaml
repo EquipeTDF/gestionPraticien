@@ -7,17 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid Background="#FFB14503">
-        <Button HorizontalAlignment="Left" Height="71" Margin="325,17,0,0" VerticalAlignment="Top" Width="154" Click="Button_ClickModifInserSpePraticien" Background="#FF02035D" BorderBrush="Black">
+        <Button HorizontalAlignment="Left" Height="71" Margin="325,17,0,0" VerticalAlignment="Top" Width="154" Click="Button_ClickModifInserSpePraticien" Background="#FF292BFA" BorderBrush="Black">
             <Label Content="Insérer ou retirer une&#xD;&#xA;spécialité  à un &#xD;&#xA;praticien" Foreground="White" Background="{x:Null}"/>
         </Button>
-        <Button HorizontalAlignment="Left" Height="71" Margin="576,17,0,0" VerticalAlignment="Top" Width="154" Click="Button_ClickInserPraticienToActivite" Background="#FF022A5D" BorderBrush="Black">
+        <Button HorizontalAlignment="Left" Height="71" Margin="576,17,0,0" VerticalAlignment="Top" Width="154" Click="Button_ClickInserPraticienToActivite" Background="#FF292BFA" BorderBrush="Black">
             <Label Content="Ajouter une activité  &#xA;complémentaire à un &#xA;praticien" Foreground="White"/>
         </Button>
         <Label Content="Liste des praticiens :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="68,111,0,0" FontWeight="Bold"/>
-        <Button HorizontalAlignment="Left" Height="71" Margin="68,17,0,0" VerticalAlignment="Top" Width="154" Click="Button_ClickCreModifSpe" Background="#FF02035D" Foreground="Black" BorderBrush="Black">
+        <Button HorizontalAlignment="Left" Height="71" Margin="68,17,0,0" VerticalAlignment="Top" Width="154" Click="Button_ClickCreModifSpe" Background="#FF292BFA" Foreground="Black" BorderBrush="Black">
             <Label Content="Créer ou modifier &#xA;une spécialité" Foreground="White"/>
         </Button>
-        <Button HorizontalAlignment="Left" Height="71" Margin="68,338,0,0" VerticalAlignment="Top" Width="154" Click="Button_ClickStatPraticien" Foreground="#FF02035D" Background="#FF02035D" BorderBrush="Black">
+        <Button HorizontalAlignment="Left" Height="71" Margin="68,338,0,0" VerticalAlignment="Top" Width="154" Click="Button_ClickStatPraticien" Foreground="#FF02035D" Background="#FF292BFA" BorderBrush="Black">
             <Label Content="Statistiques&#xA;des praticiens" Foreground="White"/>
         </Button>
         <Label Content="Profil du praticien :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="325,111,0,0" FontWeight="Bold" Width="254" Height="40" FontSize="20"/>

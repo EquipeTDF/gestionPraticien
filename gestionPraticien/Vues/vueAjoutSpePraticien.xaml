@@ -19,7 +19,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="328,112,0,0" TextWrapping="Wrap" Text="Diplôme :" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Margin="476,56,0,0" TextWrapping="Wrap" Text="Liste des spécialités non possédées :" VerticalAlignment="Top" Width="217" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Margin="322,281,0,0" TextWrapping="Wrap" Text="Spécialisation : " VerticalAlignment="Top" FontWeight="Bold"/>
-        <Button Content="Ajout" HorizontalAlignment="Left" Foreground="White" Margin="262,352,0,0" VerticalAlignment="Top" Width="81" Name="btnAjout" Click="btnAjout_Click" BorderBrush="Black" Background="#FF02035D"/>
+        <Button Content="Ajout" HorizontalAlignment="Left" Foreground="White" Margin="262,352,0,0" VerticalAlignment="Top" Width="81" Name="btnAjout" Click="btnAjout_Click" BorderBrush="Black" Background="#FF292BFA"/>
         <Slider HorizontalAlignment="Left" Margin="296,308,0,0" TickFrequency="1" VerticalAlignment="Top" Width="140" Minimum="0" Maximum="5"  Name="slSpe" ValueChanged="slSpe_ValueChanged" Background="{x:Null}" BorderBrush="White" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5"/>
         <ListBox Name="lbPraticiens" HorizontalAlignment="Left" Height="220" Margin="29,77,0,0" VerticalAlignment="Top" Width="240" SelectionChanged="lbPraticiens_SelectionChanged" BorderThickness="2" BorderBrush="Black">
             <ListBox.Background>
@@ -85,6 +85,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Content="Retirer" HorizontalAlignment="Left" Margin="355,352,0,0" Foreground="White" VerticalAlignment="Top" Width="81" x:Name="btnRetirer" Click="btnRetirer_Click" BorderBrush="{x:Null}" Background="#FF02035D"/>
+        <Button Content="Retirer" HorizontalAlignment="Left" Margin="355,352,0,0" Foreground="White" VerticalAlignment="Top" Width="81" x:Name="btnRetirer" Click="btnRetirer_Click" BorderBrush="{x:Null}" Background="#FF292BFA"/>
     </Grid>
 </Window>

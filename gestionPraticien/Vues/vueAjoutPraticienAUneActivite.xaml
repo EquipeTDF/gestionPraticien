@@ -10,7 +10,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="187,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="389" FontSize="15" FontWeight="Bold"><Run Text="Ajout d'un praticitien à une activité complémentaire"/><Run Text=" :"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="56,57,0,0" TextWrapping="Wrap" Text="Liste des praticiens : " VerticalAlignment="Top" Height="28" Width="141" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Margin="495,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" FontWeight="Bold"><Run Text="Liste des "/><Run Text="activités complémentaire"/><Run Text="s"/><Run Text=" :"/></TextBlock>
-        <Button Content="Inviter" HorizontalAlignment="Left" Margin="328,344,0,0" VerticalAlignment="Top" Width="81" Name="btnAjout" Click="btnAjout_Click" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Foreground="White" BorderBrush="{x:Null}" Background="#FF02035D"/>
+        <Button Content="Inviter" HorizontalAlignment="Left" Margin="328,344,0,0" VerticalAlignment="Top" Width="81" Name="btnAjout" Click="btnAjout_Click" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Foreground="White" BorderBrush="{x:Null}" Background="#FF292BFA"/>
         <ListBox Name="lbPraticiens" HorizontalAlignment="Left" Height="256" Margin="56,77,0,0" VerticalAlignment="Top" Width="213" SelectionChanged="lbPraticiens_SelectionChanged" BorderBrush="Black">
             <ListBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
