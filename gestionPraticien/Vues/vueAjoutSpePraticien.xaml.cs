@@ -69,6 +69,7 @@ namespace gestionPraticien.Vues
                 if (lbPraticiens.SelectedItem != null)
                 {
                     lstSpecialiteNonPosseder.ItemsSource = gst.GetSpecialitesNonPossedesDuPraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien);
+                    lstSpecialitePossedees.ItemsSource = gst.GetSpecialitesDuPraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien);
                 }
             }
         }
@@ -97,6 +98,7 @@ namespace gestionPraticien.Vues
                 if (lbPraticiens.SelectedItem != null)
                 {
                     lstSpecialitePossedees.ItemsSource = gst.GetSpecialitesDuPraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien);
+                    lstSpecialiteNonPosseder.ItemsSource = gst.GetSpecialitesNonPossedesDuPraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien);
                 }
             }
         }
