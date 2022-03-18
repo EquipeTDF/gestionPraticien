@@ -32,11 +32,13 @@ namespace gestionPraticien.Vues
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //initialisation de la liste des praticiens
             lbPraticiens.ItemsSource = Gst.GetLesPraticiens();
         }
 
         private void lbPraticiens_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // Affichage de ses Activités lorsqu'un praticien est selectionné
             if (lbPraticiens.SelectedItem != null)
             {
                 lstActivitesComplementaires.ItemsSource = gst.GetActivitesNonInvitesDuPraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien);
@@ -45,6 +47,7 @@ namespace gestionPraticien.Vues
 
         private void btnAjout_Click(object sender, RoutedEventArgs e)
         {
+            //Ajout des activités au praticien selectionné
             if (lbPraticiens.SelectedItem == null)
             {
                 MessageBox.Show("Veuillez sélectionner un praticien ", "Erreur de sélection", MessageBoxButton.OK, MessageBoxImage.Error);

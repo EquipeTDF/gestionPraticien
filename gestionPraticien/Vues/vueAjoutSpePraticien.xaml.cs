@@ -33,11 +33,13 @@ namespace gestionPraticien.Vues
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //initialisation de la liste des praticiens
             lbPraticiens.ItemsSource = Gst.GetLesPraticiens();
         }
 
         private void lbPraticiens_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //Affichage de ses spécialités lorsqu'un praticien est selectionné
             if(lbPraticiens.SelectedItem != null)
             {
                 lstSpecialiteNonPosseder.ItemsSource = gst.GetSpecialitesNonPossedesDuPraticien((lbPraticiens.SelectedItem as Praticien).NumeroPraticien);
@@ -47,6 +49,7 @@ namespace gestionPraticien.Vues
 
         private void btnAjout_Click(object sender, RoutedEventArgs e)
         {
+            //Ajout des spécialités au praticien selectionné
             if(lbPraticiens.SelectedItem == null)
             {
                 MessageBox.Show("Veuillez sélectionner un praticien ", "Erreur de sélection", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -76,11 +79,13 @@ namespace gestionPraticien.Vues
 
         private void slSpe_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            //Changement de l'affichage de la valeur du slider
             txtSliderValeur.Text =  Convert.ToInt16(slSpe.Value).ToString();
         }
 
         private void btnRetirer_Click(object sender, RoutedEventArgs e)
         {
+            //Retire les spécialités au praticien selectionné
             if (lbPraticiens.SelectedItem == null)
             {
                 MessageBox.Show("Veuillez sélectionner un praticien", "Erreur de sélection", MessageBoxButton.OK, MessageBoxImage.Error);
