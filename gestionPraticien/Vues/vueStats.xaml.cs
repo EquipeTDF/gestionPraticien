@@ -45,6 +45,8 @@ namespace gestionPraticien.Vues
 
             //List<String> lesNoms = new List<String>();
 
+            //Au chargement de la fenêtre,
+            //Créer le graphique qui affiche le nombre de spécialités par praticien
             foreach (GraphSpeParPraticien gp in gst.GetLeGrafNbSpeParPraticien())
             {
                 PieSeries ps = new PieSeries();
@@ -55,7 +57,7 @@ namespace gestionPraticien.Vues
                 ps.DataLabels = true;
                 GraphSpecialiteParPraticien.Series.Add(ps);
             }
-
+            //Affiche les 2 graphiques
             SetPraticienAvecLePlusDeSpeGraph();
             SetPraticienAvecLeMoinsDeSpeGraph();
 
@@ -64,6 +66,7 @@ namespace gestionPraticien.Vues
 
         public void SetPraticienAvecLePlusDeSpeGraph()
         {
+            //Créer un graphique avec les praticiens ayant le plus de spécialités
             ColumnSeries cs = new ColumnSeries();
             cs.Fill = Brushes.Blue;
             ChartValues<double> line = new ChartValues<double>();
@@ -85,6 +88,7 @@ namespace gestionPraticien.Vues
         }
         public void SetPraticienAvecLeMoinsDeSpeGraph()
         {
+            //Créer un graphique avec les praticiens ayant le moins de spécialités
             RowSeries cs = new RowSeries();
             cs.Fill = Brushes.Blue;
             ChartValues<double> line = new ChartValues<double>();
